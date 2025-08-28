@@ -5,10 +5,11 @@ const nextConfig = {
   
   // Environment variables
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1',
-    NEXT_PUBLIC_SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:5000',
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '/api/v1' : 'http://localhost:5000/api/v1'),
+    NEXT_PUBLIC_SOCKET_URL: process.env.NEXT_PUBLIC_SOCKET_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000'),
     NEXT_PUBLIC_APP_NAME: 'ObaNet',
     NEXT_PUBLIC_APP_VERSION: '1.0.0',
+    NEXT_PUBLIC_ENVIRONMENT: process.env.NODE_ENV || 'development',
   },
 
   // Image optimization

@@ -145,14 +145,14 @@ const startServer = async () => {
 
     // Start server
     const PORT = process.env.PORT || 5000;
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       console.log('\n🏕️  =====================================');
       console.log('🇹🇷  ObaNet Dijital Diaspora Platformu');
       console.log('🏕️  =====================================');
       console.log(`🚀  Server running on port ${PORT}`);
       console.log(`🌍  Environment: ${process.env.NODE_ENV}`);
-      console.log(`📡  API Base: http://localhost:${PORT}/api/v1`);
-      console.log(`💻  Health Check: http://localhost:${PORT}/health`);
+      console.log(`📡  API Base: ${process.env.NODE_ENV === 'production' ? 'https://obanet-api.netlify.app' : `http://localhost:${PORT}`}/api/v1`);
+      console.log(`💻  Health Check: ${process.env.NODE_ENV === 'production' ? 'https://obanet-api.netlify.app' : `http://localhost:${PORT}`}/health`);
       console.log('🏕️  =====================================\n');
     });
 

@@ -4,8 +4,8 @@ import { toast } from 'react-hot-toast'
 
 // Create axios instance
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1',
-  timeout: 10000,
+  baseURL: process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.hostname !== 'localhost' ? '/api/v1' : 'http://localhost:5000/api/v1'),
+  timeout: 30000, // Increased timeout for serverless
   headers: {
     'Content-Type': 'application/json',
   },
