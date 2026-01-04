@@ -26,7 +26,7 @@ JWT_SECRET=obanet-super-secret-jwt-key-development-only
 ### 3. MongoDB'yi Başlat
 ```bash
 # MongoDB servisini başlat (sistem bağımlı)
-sudo systemctl start mongod
+
 # veya
 brew services start mongodb/brew/mongodb-community
 ```
